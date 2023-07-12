@@ -18,9 +18,10 @@ def index(request):
         tasks = Task.objects.order_by('-posted_at')
 
     context = {
-        'tasks':tasks
+        'tasks': tasks
     }
     return render(request, 'todo/index.html', context)
+
 
 def detail(request, task_id):
     try:
@@ -29,6 +30,6 @@ def detail(request, task_id):
         raise Http404("Task does not exist")
 
     context = {
-        'task':task,
+        'task': task,
     }
     return render(request, 'todo/detail.html', context)
